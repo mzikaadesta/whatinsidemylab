@@ -95,64 +95,68 @@ jadwal = {
     }
 }
 
-
 # ===============================
-# HALAMAN: TAMPILKAN JADWAL
+# FUNGSI: LIHAT JADWAL
 # ===============================
 
-def tampilkan_jadwal_web():
+def tampilkan_jadwal():
     st.header("📚 Lihat Jadwal Pelajaran")
 
-    kelas = st.selectbox("Pilih kelas:", ["A", "B", "C"])
-    hari = st.selectbox("Pilih hari:", ["senin", "selasa", "rabu", "kamis", "jumat"])
+    kelas = st.selectbox("Pilih kelas", ["A", "B", "C"])
+    hari = st.selectbox("Pilih hari", ["senin", "selasa", "rabu", "kamis", "jumat"])
 
     data = jadwal.get(kelas, {}).get(hari)
 
     if data:
-        st.subheader(f"Jadwal Kelas {kelas} hari {hari.capitalize()}:")
+        st.subheader(f"Jadwal Kelas {kelas} - {hari.capitalize()}")
         for d in data:
-            st.write("- ", d)
+            st.write("•", d)
     else:
-        st.warning("Tidak ada jadwal pada hari tersebut.")
+        st.warning("Tidak ada jadwal.")
 
 
 # ===============================
-# HALAMAN: CARI GURU
+# FUNGSI: CARI GURU (TOMBOL)
 # ===============================
 
-def cari_guru_web():
-    st.header("🔍 Cari Guru")
+def cari_guru():
+    st.header("🔍 Cari Guru (Klik Nama)")
 
-    nama = st.text_input("Masukkan nama guru (setidaknya 1 huruf):").lower()
+    cols = st.columns(3)
 
-    if nama:
-        found = False
+    for i, (kode, nama) in enumerate(kode_guru.items()):
+        with cols[i % 3]:
+            if st.button(nama):
+                st.subheader(f"Jadwal {nama}")
 
-        for kelas in jadwal:
-            for hari in jadwal[kelas]:
-                for d in jadwal[kelas][hari]:
-                    kode = d.split("(")[1].replace(")", "")
-                    if kode in kode_guru and kode_guru[kode].lower().startswith(nama):
-                        st.write(f"**{kode_guru[kode]}** → Kelas {kelas}, Hari {hari.capitalize()}, {d}")
-                        found = True
+                ditemukan = False
+                for kelas in jadwal:
+                    for hari in jadwal[kelas]:
+                        for d in jadwal[kelas][hari]:
+                            kode_d = d.split("(")[1].replace(")", "")
+                            if kode_d == kode:
+                                st.write(
+                                    f"Kelas {kelas} | {hari.capitalize()} | {d}"
+                                )
+                                ditemukan = True
 
-        if not found:
-            st.error("Guru tidak ditemukan!")
+                if not ditemukan:
+                    st.info("Tidak ada jadwal.")
 
 
 # ===============================
-# MENU UTAMA STREAMLIT
+# MENU UTAMA
 # ===============================
 
 st.sidebar.title("📝 Sistem Jadwal Sekolah")
 
 menu = st.sidebar.radio(
-    "Pilih Menu:",
+    "Pilih Menu",
     ["Lihat Jadwal", "Cari Guru"]
 )
 
 if menu == "Lihat Jadwal":
-    tampilkan_jadwal_web()
+    tampilkan_jadwal()
 
 elif menu == "Cari Guru":
-    cari_guru_web()
+    cari_guru()
