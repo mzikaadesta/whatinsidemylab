@@ -1,9 +1,8 @@
 import streamlit as st
 
 # ===============================
-# DATA JADWAL SEKOLAH
+# DATA GURU
 # ===============================
-
 kode_guru = {
     "2": "Pak Wowo",
     "3": "Mas Gibran",
@@ -16,6 +15,9 @@ kode_guru = {
     "10": "Mas Jaka"
 }
 
+# ===============================
+# DATA JADWAL
+# ===============================
 jadwal = {
     "A": {
         "senin": [
@@ -96,11 +98,10 @@ jadwal = {
 }
 
 # ===============================
-# FUNGSI: LIHAT JADWAL
+# FITUR LIHAT JADWAL
 # ===============================
-
-def tampilkan_jadwal():
-    st.header("📚 Lihat Jadwal Pelajaran")
+def lihat_jadwal():
+    st.header("Lihat Jadwal Pelajaran")
 
     kelas = st.selectbox("Pilih kelas", ["A", "B", "C"])
     hari = st.selectbox("Pilih hari", ["senin", "selasa", "rabu", "kamis", "jumat"])
@@ -108,47 +109,37 @@ def tampilkan_jadwal():
     data = jadwal.get(kelas, {}).get(hari)
 
     if data:
-        st.subheader(f"Jadwal Kelas {kelas} - {hari.capitalize()}")
-        for d in data:
-            st.write("•", d)
+        st.subheader(f"Kelas {kelas} - {hari.capitalize()}")
+        for item in data:
+            st.write(item)
     else:
-        st.warning("Tidak ada jadwal.")
-
+        st.warning("Tidak ada jadwal")
 
 # ===============================
-# FUNGSI: CARI GURU (TOMBOL)
+# FITUR CARI GURU (PAKAI TOMBOL)
 # ===============================
-
 def cari_guru():
-    st.header("🔍 Cari Guru (Klik Nama)")
+    st.header("Cari Jadwal Guru")
 
-    cols = st.columns(3)
+    for kode, nama in kode_guru.items():
+        if st.button(nama):
+            st.subheader(f"Jadwal {nama}")
+            ditemukan = False
 
-    for i, (kode, nama) in enumerate(kode_guru.items()):
-        with cols[i % 3]:
-            if st.button(nama):
-                st.subheader(f"Jadwal {nama}")
+            for kelas in jadwal:
+                for hari in jadwal[kelas]:
+                    for item in jadwal[kelas][hari]:
+                        if f"({kode})" in item:
+                            st.write(f"Kelas {kelas} | {hari.capitalize()} | {item}")
+                            ditemukan = True
 
-                ditemukan = False
-                for kelas in jadwal:
-                    for hari in jadwal[kelas]:
-                        for d in jadwal[kelas][hari]:
-                            kode_d = d.split("(")[1].replace(")", "")
-                            if kode_d == kode:
-                                st.write(
-                                    f"Kelas {kelas} | {hari.capitalize()} | {d}"
-                                )
-                                ditemukan = True
-
-                if not ditemukan:
-                    st.info("Tidak ada jadwal.")
-
+            if not ditemukan:
+                st.info("Tidak ada jadwal untuk guru ini")
 
 # ===============================
 # MENU UTAMA
 # ===============================
-
-st.sidebar.title("📝 Sistem Jadwal Sekolah")
+st.sidebar.title("Sistem Jadwal Sekolah")
 
 menu = st.sidebar.radio(
     "Pilih Menu",
@@ -156,7 +147,6 @@ menu = st.sidebar.radio(
 )
 
 if menu == "Lihat Jadwal":
-    tampilkan_jadwal()
-
-elif menu == "Cari Guru":
+    lihat_jadwal()
+else:
     cari_guru()
