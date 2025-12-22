@@ -8,9 +8,12 @@ dosen = {
     "3": {"nama": "Mas Gibran", "telp": "08vvvvvvvvvvvvv"},
     "4": {"nama": "Bu Mega", "telp": "08vvvvvvvvvvvvv"},
     "5": {"nama": "Pak Joko", "telp": "08vvvvvvvvvvvvv"},
+    "6": {"nama": "Bu Puan", "telp": "08vvvvvvvvvvvvv"},
+    "7": {"nama": "Bu Sri", "telp": "08vvvvvvvvvvvvv"},
+    "8": {"nama": "Pak Purbay", "telp": "08vvvvvvvvvvvvv"},
+    "9": {"nama": "Bu Retno", "telp": "08vvvvvvvvvvvvv"},
+    "10": {"nama": "Mas Jaka", "telp": "08vvvvvvvvvvvvv"},
 }
-
-import streamlit as st
 
 # ===============================
 # DATA JADWAL LAB
@@ -124,127 +127,83 @@ jadwal = {
 # ===============================
 # SESSION STATE
 # ===============================
-if "halaman_lab" not in st.session_state:
-    st.session_state.halaman_lab = "menu"
-
+if "hal_lab" not in st.session_state:
+    st.session_state.hal_lab = "menu"
 if "lab_terpilih" not in st.session_state:
     st.session_state.lab_terpilih = None
 
-# ===============================
-# FITUR LIHAT JADWAL LAB
-# ===============================
-def lihat_jadwal():
-    st.header("📅 Lihat Jadwal Laboratorium")
-
-    lab = st.selectbox("Pilih Laboratorium", list(jadwal.keys()))
-    hari = st.selectbox(
-        "Pilih Hari",
-        ["senin", "selasa", "rabu", "kamis", "jumat"]
-    )
-
-    data = jadwal.get(lab, {}).get(hari)
-
-    if data:
-        st.subheader(f"{lab} - {hari.capitalize()}")
-        for d in data:
-            st.write(d)
-    else:
-        st.info("Tidak ada jadwal pada hari tersebut.")
-
-# ===============================
-# MENU LAB (TOMBOL)
-# ===============================
-def menu_lab():
-    st.header("🏫 Daftar Laboratorium")
-
-    for lab in jadwal.keys():
-        if st.button(lab):
-            st.session_state.lab_terpilih = lab
-            st.session_state.halaman_lab = "detail"
-
-# ===============================
-# DETAIL LAB
-# ===============================
-def detail_lab():
-    lab = st.session_state.lab_terpilih
-
-    st.header(f"🔬 Informasi {lab}")
-
-    st.subheader("📋 Cara Meminjam Laboratorium")
-    st.write("""
-    1. Mengajukan permohonan peminjaman
-    2. Mengisi formulir peminjaman
-    3. Mendapat persetujuan penanggung jawab lab
-    4. Menggunakan lab sesuai jadwal yang ditentukan
-    """)
-
-    st.subheader("⚠️ Aturan Penggunaan")
-    st.write("""
-    - Wajib menggunakan APD
-    - Menjaga kebersihan laboratorium
-    - Tidak membawa makanan dan minuman
-    - Bertanggung jawab atas alat yang digunakan
-    """)
-
-    st.subheader("📞 Kontak Penanggung Jawab")
-    st.write("Nama : Dosen Penanggung Jawab")
-    st.write("No. Telp : 08vvvvvvvvvvvvv")
-
-    if st.button("⬅ Kembali ke Daftar Lab"):
-        st.session_state.halaman_lab = "menu"
-
-# ===============================
-# SIDEBAR MENU UTAMA
-# ===============================
-st.sidebar.title("Sistem Laboratorium")
-
-menu = st.sidebar.radio(
-    "Menu",
-    ["Lihat Jadwal Lab", "Informasi Lab"]
-)
-
-# ===============================
-# ROUTING
-# ===============================
-if menu == "Lihat Jadwal Lab":
-    lihat_jadwal()
-
-elif menu == "Informasi Lab":
-    if st.session_state.halaman_lab == "menu":
-        menu_lab()
-    else:
-        detail_lab()
-
-
-# ===============================
-# STATE HALAMAN DOSEN
-# ===============================
 if "hal_dosen" not in st.session_state:
-    st.session_state.hal_dosen = "list"
+    st.session_state.hal_dosen = "menu"
 if "kode_dosen" not in st.session_state:
     st.session_state.kode_dosen = None
 
 # ===============================
-# LIST DOSEN
+# FITUR JADWAL LAB
 # ===============================
-def list_dosen():
-    st.header("📘 Info Dosen")
+def lihat_jadwal():
+    st.header("📅 Jadwal Laboratorium")
 
+    lab = st.selectbox("Pilih Lab", list(jadwal.keys()))
+    hari = st.selectbox("Pilih Hari", ["senin", "selasa", "rabu", "kamis", "jumat"])
+
+    data = jadwal.get(lab, {}).get(hari)
+
+    if data:
+        for d in data:
+            st.write(d)
+    else:
+        st.info("Tidak ada jadwal")
+
+# ===============================
+# LAB MENU & DETAIL
+# ===============================
+def menu_lab():
+    st.header("🏫 Daftar Laboratorium")
+    for lab in jadwal.keys():
+        if st.button(lab):
+            st.session_state.lab_terpilih = lab
+            st.session_state.hal_lab = "detail"
+
+def detail_lab():
+    lab = st.session_state.lab_terpilih
+    st.header(f"🔬 {lab}")
+
+    st.subheader("📋 Cara Meminjam Lab")
+    st.write("""
+    1. Mengisi formulir peminjaman
+    2. Persetujuan dosen / PJ Lab
+    3. Menggunakan lab sesuai jadwal
+    """)
+
+    st.subheader("⚠️ Aturan")
+    st.write("""
+    - Wajib APD
+    - Jaga kebersihan
+    - Bertanggung jawab atas alat
+    """)
+
+    st.subheader("📞 Kontak PJ")
+    st.write("08vvvvvvvvvvvvv")
+
+    if st.button("⬅ Kembali"):
+        st.session_state.hal_lab = "menu"
+
+# ===============================
+# DOSEN MENU & DETAIL
+# ===============================
+def menu_dosen():
+    st.header("👨‍🏫 Daftar Dosen")
     for kode, data in dosen.items():
         if st.button(data["nama"]):
             st.session_state.kode_dosen = kode
             st.session_state.hal_dosen = "detail"
 
-# ===============================
-# DETAIL DOSEN
-# ===============================
 def detail_dosen():
     kode = st.session_state.kode_dosen
     data = dosen[kode]
 
-    st.header("👤 Detail Dosen")
-    st.write("**Nama:**", data["nama"])
-    st.write("**No. Telp:**", data["telp"])
+    st.header(data["nama"])
+    st.write("📞", data["telp"])
 
     st.subheader("📅 Jadwal Mengajar")
     ada = False
@@ -259,22 +218,30 @@ def detail_dosen():
         st.info("Belum ada jadwal")
 
     if st.button("⬅ Kembali"):
-        st.session_state.hal_dosen = "list"
-        st.session_state.kode_dosen = None
+        st.session_state.hal_dosen = "menu"
 
 # ===============================
-# MENU SIDEBAR
+# SIDEBAR
 # ===============================
 menu = st.sidebar.radio(
     "Menu",
-    ["Lihat Jadwal Lab", "Info Dosen"]
+    ["Lihat Jadwal Lab", "Informasi Lab", "Informasi Dosen"]
 )
 
+# ===============================
+# ROUTING
+# ===============================
 if menu == "Lihat Jadwal Lab":
     lihat_jadwal()
 
-elif menu == "Info Dosen":
-    if st.session_state.hal_dosen == "list":
-        list_dosen()
+elif menu == "Informasi Lab":
+    if st.session_state.hal_lab == "menu":
+        menu_lab()
+    else:
+        detail_lab()
+
+elif menu == "Informasi Dosen":
+    if st.session_state.hal_dosen == "menu":
+        menu_dosen()
     else:
         detail_dosen()
