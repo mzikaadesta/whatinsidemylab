@@ -46,7 +46,7 @@ jadwal = {
         ]
     },
 
-    "Lab.lingkugan": {
+    "Lab.lingkungan": {
         "senin": [
             "07.00 Bahasa Indonesia (4)",
             "10.00 Kimia (10)",
