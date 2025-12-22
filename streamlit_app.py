@@ -72,6 +72,33 @@ jadwal = {
             "13.00 Bahasa Indonesia (4)"
         ]
     },
+     "Lab.instrument": {
+        "senin": [
+            "07.00 Bahasa Indonesia (4)",
+            "10.00 Kimia (10)",
+            "13.00 PKN (3)"
+        ],
+        "selasa": [
+            "07.00 Sejarah (7)",
+            "10.00 Matematika (9)",
+            "13.00 IPA (8)"
+        ],
+        "rabu": [
+            "07.00 Olahraga (5)",
+            "10.00 Kimia (10)",
+            "13.00 IPA (8)"
+        ],
+        "kamis": [
+            "07.00 IPS (6)",
+            "10.00 Matematika (9)",
+            "13.00 Bahasa Inggris (2)"
+        ],
+        "jumat": [
+            "07.00 IPS (6)",
+            "13.00 Bahasa Indonesia (4)"
+        ]
+    },
+
 
     "Lab.analisis": {
         "senin": [
@@ -103,7 +130,7 @@ jadwal = {
 def lihat_jadwal():
     st.header("Lihat Jadwal Pelajaran")
 
-    kelas = st.selectbox("Pilih kelas", ["Lab.organik", "Lab.lingkungan", "Lab.analisis"])
+    kelas = st.selectbox("Pilih kelas", ["Lab.organik", "Lab.lingkungan","Lab.instrument", "Lab.analisis"])
     hari = st.selectbox("Pilih hari", ["senin", "selasa", "rabu", "kamis", "jumat"])
 
     data = jadwal.get(kelas, {}).get(hari)
