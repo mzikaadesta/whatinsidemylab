@@ -10,10 +10,11 @@ dosen = {
     "5": {"nama": "Pak Joko", "telp": "08vvvvvvvvvvvvv"},
 }
 
-# ===============================
-# DATA JADWAL
-# ===============================
+import streamlit as st
 
+# ===============================
+# DATA JADWAL LAB
+# ===============================
 jadwal = {
     "Lab.organik": {
         "senin": [
@@ -120,23 +121,100 @@ jadwal = {
     }
 }
 
+# ===============================
+# SESSION STATE
+# ===============================
+if "halaman_lab" not in st.session_state:
+    st.session_state.halaman_lab = "menu"
+
+if "lab_terpilih" not in st.session_state:
+    st.session_state.lab_terpilih = None
 
 # ===============================
-# FITUR LAB (ASLI)
+# FITUR LIHAT JADWAL LAB
 # ===============================
 def lihat_jadwal():
-    st.header("Lihat Jadwal Lab")
+    st.header("📅 Lihat Jadwal Laboratorium")
 
-    kelas = st.selectbox("Pilih Lab", list(jadwal.keys()))
-    hari = st.selectbox("Pilih Hari", ["senin", "selasa", "rabu", "kamis", "jumat"])
+    lab = st.selectbox("Pilih Laboratorium", list(jadwal.keys()))
+    hari = st.selectbox(
+        "Pilih Hari",
+        ["senin", "selasa", "rabu", "kamis", "jumat"]
+    )
 
-    data = jadwal.get(kelas, {}).get(hari)
+    data = jadwal.get(lab, {}).get(hari)
 
     if data:
+        st.subheader(f"{lab} - {hari.capitalize()}")
         for d in data:
             st.write(d)
     else:
-        st.info("Tidak ada jadwal")
+        st.info("Tidak ada jadwal pada hari tersebut.")
+
+# ===============================
+# MENU LAB (TOMBOL)
+# ===============================
+def menu_lab():
+    st.header("🏫 Daftar Laboratorium")
+
+    for lab in jadwal.keys():
+        if st.button(lab):
+            st.session_state.lab_terpilih = lab
+            st.session_state.halaman_lab = "detail"
+
+# ===============================
+# DETAIL LAB
+# ===============================
+def detail_lab():
+    lab = st.session_state.lab_terpilih
+
+    st.header(f"🔬 Informasi {lab}")
+
+    st.subheader("📋 Cara Meminjam Laboratorium")
+    st.write("""
+    1. Mengajukan permohonan peminjaman
+    2. Mengisi formulir peminjaman
+    3. Mendapat persetujuan penanggung jawab lab
+    4. Menggunakan lab sesuai jadwal yang ditentukan
+    """)
+
+    st.subheader("⚠️ Aturan Penggunaan")
+    st.write("""
+    - Wajib menggunakan APD
+    - Menjaga kebersihan laboratorium
+    - Tidak membawa makanan dan minuman
+    - Bertanggung jawab atas alat yang digunakan
+    """)
+
+    st.subheader("📞 Kontak Penanggung Jawab")
+    st.write("Nama : Dosen Penanggung Jawab")
+    st.write("No. Telp : 08vvvvvvvvvvvvv")
+
+    if st.button("⬅ Kembali ke Daftar Lab"):
+        st.session_state.halaman_lab = "menu"
+
+# ===============================
+# SIDEBAR MENU UTAMA
+# ===============================
+st.sidebar.title("Sistem Laboratorium")
+
+menu = st.sidebar.radio(
+    "Menu",
+    ["Lihat Jadwal Lab", "Informasi Lab"]
+)
+
+# ===============================
+# ROUTING
+# ===============================
+if menu == "Lihat Jadwal Lab":
+    lihat_jadwal()
+
+elif menu == "Informasi Lab":
+    if st.session_state.halaman_lab == "menu":
+        menu_lab()
+    else:
+        detail_lab()
+
 
 # ===============================
 # STATE HALAMAN DOSEN
