@@ -19,7 +19,7 @@ kode_guru = {
 # DATA JADWAL
 # ===============================
 jadwal = {
-    "A": {
+    "Lab.organik": {
         "senin": [
             "07.00 Matematika (9)",
             "10.00 Sejarah (7)",
@@ -46,7 +46,7 @@ jadwal = {
         ]
     },
 
-    "B": {
+    "Lab.lingkugan": {
         "senin": [
             "07.00 Bahasa Indonesia (4)",
             "10.00 Kimia (10)",
@@ -73,7 +73,7 @@ jadwal = {
         ]
     },
 
-    "C": {
+    "Lab.analisis": {
         "senin": [
             "07.00 IPS (6)",
             "10.00 Kimia (10)",
@@ -103,7 +103,7 @@ jadwal = {
 def lihat_jadwal():
     st.header("Lihat Jadwal Pelajaran")
 
-    kelas = st.selectbox("Pilih kelas", ["A", "B", "C"])
+    kelas = st.selectbox("Pilih kelas", ["Lab.organik", "Lab.lingkungan", "Lab.analisis"])
     hari = st.selectbox("Pilih hari", ["senin", "selasa", "rabu", "kamis", "jumat"])
 
     data = jadwal.get(kelas, {}).get(hari)
