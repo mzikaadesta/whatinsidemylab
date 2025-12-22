@@ -11,22 +11,115 @@ dosen = {
 }
 
 # ===============================
-# DATA JADWAL LAB (TIDAK DIUBAH)
+# DATA JADWAL
 # ===============================
+
 jadwal = {
     "Lab.organik": {
         "senin": [
-            "07.00 Kimia (2)",
-            "10.00 Analisis (4)"
+            "07.00 Matematika (9)",
+            "10.00 Sejarah (7)",
+            "13.00 IPA (8)"
+        ],
+        "selasa": [
+            "07.00 IPS (6)",
+            "10.00 Kimia (10)",
+            "13.00 Bahasa Inggris (2)"
+        ],
+        "rabu": [
+            "07.00 Olahraga (5)",
+            "10.00 Matematika (9)",
+            "13.00 IPA (8)"
+        ],
+        "kamis": [
+            "07.00 IPS (6)",
+            "10.00 Kimia (10)",
+            "13.00 Bahasa Indonesia (4)"
+        ],
+        "jumat": [
+            "07.00 Bahasa Indonesia (4)",
+            "13.00 PKN (3)"
         ]
     },
-    "Lab.instrument": {
+
+    "Lab.lingkungan": {
+        "senin": [
+            "07.00 Bahasa Indonesia (4)",
+            "10.00 Kimia (10)",
+            "13.00 PKN (3)"
+        ],
         "selasa": [
-            "08.00 Spektroskopi (3)",
-            "13.00 Kromatografi (5)"
+            "07.00 Sejarah (7)",
+            "10.00 Matematika (9)",
+            "13.00 IPA (8)"
+        ],
+        "rabu": [
+            "07.00 Olahraga (5)",
+            "10.00 Kimia (10)",
+            "13.00 IPA (8)"
+        ],
+        "kamis": [
+            "07.00 IPS (6)",
+            "10.00 Matematika (9)",
+            "13.00 Bahasa Inggris (2)"
+        ],
+        "jumat": [
+            "07.00 IPS (6)",
+            "13.00 Bahasa Indonesia (4)"
+        ]
+    },
+
+    "Lab.instrument": {
+        "senin": [
+            "07.00 Bahasa Indonesia (4)",
+            "10.00 Kimia (10)",
+            "13.00 PKN (3)"
+        ],
+        "selasa": [
+            "07.00 Sejarah (7)",
+            "10.00 Matematika (9)",
+            "13.00 IPA (8)"
+        ],
+        "rabu": [
+            "07.00 Olahraga (5)",
+            "10.00 Kimia (10)",
+            "13.00 IPA (8)"
+        ],
+        "kamis": [
+            "07.00 IPS (6)",
+            "10.00 Matematika (9)",
+            "13.00 Bahasa Inggris (2)"
+        ],
+        "jumat": [
+            "07.00 IPS (6)",
+            "13.00 Bahasa Indonesia (4)"
+        ]
+    },
+
+    "Lab.analisis": {
+        "senin": [
+            "07.00 IPS (6)",
+            "10.00 Kimia (10)",
+            "13.00 Bahasa Inggris (2)"
+        ],
+        "selasa": [
+            "07.00 Matematika (9)",
+            "10.00 Sejarah (7)",
+            "13.00 IPA (8)"
+        ],
+        "rabu": [
+            "07.00 IPS (6)",
+            "10.00 Kimia (10)",
+            "13.00 Bahasa Indonesia (4)"
+        ],
+        "kamis": [
+            "07.00 Bahasa Indonesia (4)",
+            "10.00 Matematika (9)",
+            "13.00 PKN (3)"
         ]
     }
 }
+
 
 # ===============================
 # FITUR LAB (ASLI)
