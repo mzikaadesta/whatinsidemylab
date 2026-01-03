@@ -168,7 +168,7 @@ def detail_lab():
     lab = st.session_state.lab_terpilih
     st.header(f"🔬 {lab}")
 
-    st.subheader("📋 Cara Meminjam Lab")
+    st.subheader("📋 Cara Meminjam Laborator")
     st.write("""
     1. Mengisi formulir peminjaman 
 
