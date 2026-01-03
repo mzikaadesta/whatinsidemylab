@@ -170,7 +170,9 @@ def detail_lab():
 
     st.subheader("📋 Cara Meminjam Lab")
     st.write("""
-    1. Mengisi formulir peminjaman
+    1. Mengisi formulir peminjaman import streamlit as st
+
+st.link_button("Go to gallery", "https://streamlit.io/gallery")
     2. Persetujuan dosen / PJ Lab
     3. Menggunakan lab sesuai jadwal
     """)
