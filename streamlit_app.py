@@ -173,6 +173,7 @@ def detail_lab():
     1. Mengisi formulir peminjaman 
 
     st.link_button("Go to gallery", "https://streamlit.io/gallery")
+    
     2. Persetujuan dosen / PJ Lab
     3. Menggunakan lab sesuai jadwal
     """)
