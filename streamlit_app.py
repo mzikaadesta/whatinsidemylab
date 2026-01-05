@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(page_title="Sistem Informasi Laboratorium", layout="wide", page_icon="🔬")
 
 # ===============================
-# DATABASE LAB (DATA ASLI DOKUMEN)
+# DATABASE LAB
 # ===============================
 DATABASE_LAB = {
     "Lab Organik": {
@@ -40,162 +40,48 @@ DATABASE_LAB = {
             "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
             "jumat": {"07.00": "1B", "10.00": "2D"}
         },
-        "regulasi": [
-            "1. bbbbbbbbbb",
-            "2. bbbbbbbbbbb",
-            "3. bbbbbbbbbbbb",
-            "4. bbbbbbbbbbb",
-            "5. bbbbbbbbbbbbb"
-        ],
-        "dosen": [
-            {"nama": "Pak Joko", "telp": "08wkwkwkwkwk"},
-            {"nama": "Bu Puan", "telp": "08wkwkwkwkwk"},
-            {"nama": "Bu Sri", "telp": "08wkwkwkwkwk"},
-        ],
+        "regulasi": ["1. bbb", "2. bbb"],
+        "dosen": [{"nama": "Pak Joko", "telp": "08..."}],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     },
     "Lab Lingkungan": {
         "gedung": "Gedung B",
         "key": "lingkungan",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. pppppppppp",
-            "2. ppppppppppp",
-            "3. pppppppppppp",
-            "4. ppppppppppp",
-            "5. ppppppppppppp"
-        ],
-        "dosen": [
-            {"nama": "Pak Purbay", "telp": "08wkwkwkwkwk"},
-            {"nama": "Bu Retno", "telp": "08wkwkwkwkwk"},
-            {"nama": "Mas Jaka", "telp": "08wkwkwkwkwk"},
-        ],
+        "jadwal": { "senin": {"07.00": "1A"} },
+        "regulasi": ["1. ppp", "2. ppp"],
+        "dosen": [{"nama": "Pak Purbay", "telp": "08..."}],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     },
     "Lab Instrumen": {
         "gedung": "Gedung E",
         "key": "instrumen",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. 0000000000",
-            "2. 00000000000",
-            "3. 000000000000",
-            "4. 00000000000",
-            "5. 0000000000000"
-        ],
-        "dosen": [
-            {"nama": "Pak DD", "telp": "08wkwkwkwkwk"},
-            {"nama": "Bu CC", "telp": "08wkwkwkwkwk"},
-            {"nama": "Mas HH", "telp": "08wkwkwkwkwk"},
-        ],
+        "jadwal": { "senin": {"07.00": "1A"} },
+        "regulasi": ["1. 000", "2. 000"],
+        "dosen": [{"nama": "Pak DD", "telp": "08..."}],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     },
-    "Lab mikro": {
+    "Lab Mikro": {
         "gedung": "Gedung E",
-        "key": "instrumen",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. 0000000000",
-            "2. 00000000000",
-            "3. 000000000000",
-            "4. 00000000000",
-            "5. 0000000000000"
-        ],
-        "dosen": [
-            {"nama": "Pak DD", "telp": "08wkwkwkwkwk"},
-            {"nama": "Bu CC", "telp": "08wkwkwkwkwk"},
-            {"nama": "Mas HH", "telp": "08wkwkwkwkwk"},
-        ],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
-    },
-    "Lab komputer": {
-        "gedung": "Gedung E",
-        "key": "instrumen",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. 0000000000",
-            "2. 00000000000",
-            "3. 000000000000",
-            "4. 00000000000",
-            "5. 0000000000000"
-        ],
-        "dosen": [
-            {"nama": "Pak DD", "telp": "08wkwkwkwkwk"},
-            {"nama": "Bu CC", "telp": "08wkwkwkwkwk"},
-            {"nama": "Mas HH", "telp": "08wkwkwkwkwk"},
-        ],
+        "key": "mikro",
+        "jadwal": { "senin": {"07.00": "1A"} },
+        "regulasi": ["Aturan Mikro..."],
+        "dosen": [{"nama": "Dosen Mikro", "telp": "08..."}],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     },
     "Lab Fisika": {
         "gedung": "Gedung F",
         "key": "fisika",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. mmmmmmmmmm",
-            "2. mmmmmmmmmmm",
-            "3. mmmmmmmmmmmm",
-            "4. mmmmmmmmmmm",
-            "5. mmmmmmmmmmmmm"
-        ],
-        "dosen": [
-            {"nama": "Pak Purbay", "telp": "08wkwkwkwkwk"},
-            {"nama": "Bu Retno", "telp": "08wkwkwkwkwk"},
-            {"nama": "Mas Jaka", "telp": "08wkwkwkwkwk"},
-        ],
+        "jadwal": { "senin": {"07.00": "1A"} },
+        "regulasi": ["1. mmmm", "2. mmmm"],
+        "dosen": [{"nama": "Pak Purbay", "telp": "08..."}],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     },
     "Lab Teknologi": {
         "gedung": "Gedung G",
         "key": "teknologi",
-        "jadwal": {
-            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
-            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
-            "jumat": {"07.00": "1B", "10.00": "2D"}
-        },
-        "regulasi": [
-            "1. msmsmsmsmsmsms",
-            "2. msmsmsmsmsmsmsms",
-            "3. msmsmsmsmsmsmsmsms",
-            "4. msmsmsmsmsmsmsms",
-            "5. msmsmsmsmsmsmsmsms"
-        ],
-        "dosen": [
-            {"nama": "agoy, M.Si", "telp": "08wkwkwkwkwk"},
-            {"nama": "Siti Indomi, M.Si", "telp": "08wkwkwkwkwk"},
-            {"nama": "Ultra Mikk. Amd, Si", "telp": "08wkwkwkwkwk"},
-        ],
+        "jadwal": { "senin": {"07.00": "1A"} },
+        "regulasi": ["1. msms", "2. msms"],
+        "dosen": [{"nama": "agoy, M.Si", "telp": "08..."}],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     }
 }
@@ -211,7 +97,7 @@ def reset_lab():
 
 def halaman_detail_lab(nama_lab):
     data = DATABASE_LAB[nama_lab]
-    st.button("⬅ Kembali ke Menu Utama", on_click=reset_lab)
+    st.button("⬅ Kembali ke Daftar Gedung", on_click=reset_lab)
     st.title(f"🔬 {nama_lab}")
     st.divider()
 
@@ -221,7 +107,7 @@ def halaman_detail_lab(nama_lab):
         for r in data["regulasi"]:
             st.write(r)
         st.divider()
-        st.link_button("🌐 Klik Untuk Formulir Peminjaman", data["link_form"], type="primary", use_container_width=True)
+        st.link_button("📑 Formulir Peminjaman", data["link_form"], type="primary", use_container_width=True)
 
     with col2:
         st.subheader("👨‍🔬 Dosen & Laboran")
@@ -232,32 +118,54 @@ def halaman_detail_lab(nama_lab):
 
 def tampilkan_gedung(nama_gedung):
     st.header(f"🏢 {nama_gedung}")
+    
+    # --- LOGIKA FOTO OTOMATIS BERDASARKAN GEDUNG ---
+    if nama_gedung == "Gedung B":
+        st.image("https://via.placeholder.com/800x300.png?text=Foto+Gedung+B", caption="Halaman Gedung B")
+    elif nama_gedung == "Gedung E":
+        st.image("https://via.placeholder.com/800x300.png?text=Foto+Gedung+E", caption="Halaman Gedung E")
+    elif nama_gedung == "Gedung F":
+        st.image("https://via.placeholder.com/800x300.png?text=Foto+Gedung+F", caption="Halaman Gedung F")
+    elif nama_gedung == "Gedung G":
+        st.image("https://via.placeholder.com/800x300.png?text=Foto+Gedung+G", caption="Halaman Gedung G")
+    
+    st.divider()
+    st.write("### Pilih Laboratorium:")
+    
     lab_di_gedung = {k: v for k, v in DATABASE_LAB.items() if v["gedung"] == nama_gedung}
-    for nama_lab, info in lab_di_gedung.items():
-        if st.button(f"informasi {nama_lab}", key=info["key"]):
-            st.session_state.lab_terpilih = nama_lab
-            st.rerun()
+    
+    # Menampilkan tombol lab secara menyamping (grid)
+    if lab_di_gedung:
+        cols = st.columns(len(lab_di_gedung))
+        for i, (nama_lab, info) in enumerate(lab_di_gedung.items()):
+            with cols[i]:
+                if st.button(f"ℹ️ Informasi {nama_lab}", key=info["key"]):
+                    st.session_state.lab_terpilih = nama_lab
+                    st.rerun()
 
 def lihat_jadwal():
     st.header("📅 Jadwal Laboratorium")
     lab_nama = st.selectbox("Pilih Lab", list(DATABASE_LAB.keys()))
     hari = st.selectbox("Pilih Hari", ["senin", "selasa", "rabu", "kamis", "jumat"])
+    
     jadwal_hari = DATABASE_LAB[lab_nama]["jadwal"].get(hari)
     if jadwal_hari:
         for jam, kls in jadwal_hari.items():
             st.info(f"🕒 **{jam}** — Kelas **{kls}**")
     else:
-        st.warning("Tidak ada jadwal.")
+        st.warning("Tidak ada jadwal pada hari tersebut.")
 
 # ===============================
-# ROUTING
+# ROUTING UTAMA
 # ===============================
 with st.sidebar:
-    st.title("Menu Lab")
-    menu = st.radio("Pilih Menu", ["Jadwal Lab", "Gedung B", "Gedung E", "Gedung F", "Gedung G"], on_change=reset_lab)
+    st.title("🧪 Menu Lab")
+    menu = st.radio("Pilih Navigasi", ["Jadwal Lab", "Gedung B", "Gedung E", "Gedung F", "Gedung G"], on_change=reset_lab)
 
 if st.session_state.lab_terpilih:
     halaman_detail_lab(st.session_state.lab_terpilih)
 else:
-    if menu == "Jadwal Lab": lihat_jadwal()
-    else: tampilkan_gedung(menu)
+    if menu == "Jadwal Lab":
+        lihat_jadwal()
+    else:
+        tampilkan_gedung(menu)
