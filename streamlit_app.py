@@ -1,164 +1,215 @@
 import streamlit as st
 
-st.set_page_config(page_title="Sistem Laboratorium", layout="wide")
+st.set_page_config(page_title="Sistem Informasi Laboratorium", layout="wide", page_icon="🔬")
 
 # ===============================
-# DATABASE JADWAL (SIMULASI)
+# DATABASE LAB (DATA ASLI DOKUMEN)
 # ===============================
-jadwal = {
+DATABASE_LAB = {
     "Lab Organik": {
-        "senin": {"07.00": "1A", "10.00": "1B"},
-        "selasa": {"07.00": "2A"}
+        "gedung": "Gedung B",
+        "key": "organik",
+        "jadwal": {
+            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
+            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
+            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
+            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
+            "jumat": {"07.00": "1B", "10.00": "2D"}
+        },
+        "regulasi": [
+            "1. wwww dresscode lab lengkap",
+            "2. wwww dilarang makan/minum",
+            "3. wwww cek alat sebelum pakai",
+            "4. wwww bersihkan meja setelah praktikum",
+            "5. wwww lapor jika ada kerusakan"
+        ],
+        "dosen": [
+            {"nama": "Golda, M.Si", "telp": "Kode 2"},
+            {"nama": "Siti Indomi, M.Si", "telp": "Kode 3"},
+            {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4"},
+        ],
+        "link_form": "https://youtu.be/opl6dScRQzQ"
     },
     "Lab Analisis": {
-        "senin": {"07.00": "2B"},
-        "selasa": {"10.00": "2C"}
-    },
-    "Lab Instrument": {
-        "senin": {"07.00": "2D"},
+        "gedung": "Gedung B",
+        "key": "analisis",
+        "jadwal": {
+            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
+            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
+            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
+            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
+            "jumat": {"07.00": "1B", "10.00": "2D"}
+        },
+        "regulasi": [
+            "1. bbbbbbbbbb",
+            "2. bbbbbbbbbbb",
+            "3. bbbbbbbbbbbb",
+            "4. bbbbbbbbbbb",
+            "5. bbbbbbbbbbbbb"
+        ],
+        "dosen": [
+            {"nama": "Pak Joko", "telp": "Kode 5"},
+            {"nama": "Bu Puan", "telp": "Kode 6"},
+            {"nama": "Bu Sri", "telp": "Kode 7"},
+        ],
+        "link_form": "https://youtu.be/opl6dScRQzQ"
     },
     "Lab Lingkungan": {
-        "selasa": {"10.00": "1C"},
+        "gedung": "Gedung B",
+        "key": "lingkungan",
+        "jadwal": {
+            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
+            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
+            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
+            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
+            "jumat": {"07.00": "1B", "10.00": "2D"}
+        },
+        "regulasi": [
+            "1. pppppppppp",
+            "2. ppppppppppp",
+            "3. pppppppppppp",
+            "4. ppppppppppp",
+            "5. ppppppppppppp"
+        ],
+        "dosen": [
+            {"nama": "Pak Purbay", "telp": "Kode 8"},
+            {"nama": "Bu Retno", "telp": "Kode 9"},
+            {"nama": "Mas Jaka", "telp": "Kode 10"},
+        ],
+        "link_form": "https://youtu.be/opl6dScRQzQ"
+    },
+    "Lab Instrumen": {
+        "gedung": "Gedung E",
+        "key": "instrumen",
+        "jadwal": {
+            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
+            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
+            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
+            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
+            "jumat": {"07.00": "1B", "10.00": "2D"}
+        },
+        "regulasi": [
+            "1. 0000000000",
+            "2. 00000000000",
+            "3. 000000000000",
+            "4. 00000000000",
+            "5. 0000000000000"
+        ],
+        "dosen": [
+            {"nama": "Pak DD", "telp": "Kode 11"},
+            {"nama": "Bu CC", "telp": "Kode 12"},
+            {"nama": "Mas HH", "telp": "Kode 13"},
+        ],
+        "link_form": "https://youtu.be/opl6dScRQzQ"
+    },
+    "Lab Fisika": {
+        "gedung": "Gedung F",
+        "key": "fisika",
+        "jadwal": {
+            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
+            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
+            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
+            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
+            "jumat": {"07.00": "1B", "10.00": "2D"}
+        },
+        "regulasi": [
+            "1. mmmmmmmmmm",
+            "2. mmmmmmmmmmm",
+            "3. mmmmmmmmmmmm",
+            "4. mmmmmmmmmmm",
+            "5. mmmmmmmmmmmmm"
+        ],
+        "dosen": [
+            {"nama": "Pak Purbay", "telp": "Kode 8"},
+            {"nama": "Bu Retno", "telp": "Kode 9"},
+            {"nama": "Mas Jaka", "telp": "Kode 10"},
+        ],
+        "link_form": "https://youtu.be/opl6dScRQzQ"
+    },
+    "Lab Teknologi": {
+        "gedung": "Gedung G",
+        "key": "teknologi",
+        "jadwal": {
+            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
+            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
+            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
+            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
+            "jumat": {"07.00": "1B", "10.00": "2D"}
+        },
+        "regulasi": [
+            "1. msmsmsmsmsmsms",
+            "2. msmsmsmsmsmsmsms",
+            "3. msmsmsmsmsmsmsmsms",
+            "4. msmsmsmsmsmsmsms",
+            "5. msmsmsmsmsmsmsmsms"
+        ],
+        "dosen": [
+            {"nama": "Golda, M.Si", "telp": "Kode 2"},
+            {"nama": "Siti Indomi, M.Si", "telp": "Kode 3"},
+            {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4"},
+        ],
+        "link_form": "https://youtu.be/opl6dScRQzQ"
     }
 }
 
 # ===============================
-# DATA DOSEN / LABORAN
+# FUNGSI NAVIGASI & TAMPILAN
 # ===============================
-laboran = {
-    "organik": [
-        {"nama": "Dosen Organik 1", "telp": "08vvvvvvvvvvvvv", "foto": "https://via.placeholder.com/150"},
-        {"nama": "Dosen Organik 2", "telp": "08vvvvvvvvvvvvv", "foto": "https://via.placeholder.com/150"},
-    ],
-    "analisis": [
-        {"nama": "Dosen Analisis 1", "telp": "08vvvvvvvvvvvvv", "foto": "https://via.placeholder.com/150"},
-    ],
-    "instrument": [
-        {"nama": "Dosen Instrument 1", "telp": "08vvvvvvvvvvvvv", "foto": "https://via.placeholder.com/150"},
-    ],
-    "lingkungan": [
-        {"nama": "Dosen Lingkungan 1", "telp": "08vvvvvvvvvvvvv", "foto": "https://via.placeholder.com/150"},
-    ],
-}
+if "lab_terpilih" not in st.session_state:
+    st.session_state.lab_terpilih = None
 
-# ===============================
-# SESSION STATE
-# ===============================
-if "lab" not in st.session_state:
-    st.session_state.lab = None
+def reset_lab():
+    st.session_state.lab_terpilih = None
 
-# ===============================
-# HALAMAN JADWAL
-# ===============================
+def halaman_detail_lab(nama_lab):
+    data = DATABASE_LAB[nama_lab]
+    st.button("⬅ Kembali ke Menu Utama", on_click=reset_lab)
+    st.title(f"🔬 {nama_lab}")
+    st.divider()
+
+    col1, col2 = st.columns([1.5, 1])
+    with col1:
+        st.subheader("📜 Regulasi Peminjaman")
+        for r in data["regulasi"]:
+            st.write(r)
+        st.divider()
+        st.link_button("🌐 Klik Untuk Formulir Peminjaman", data["link_form"], type="primary", use_container_width=True)
+
+    with col2:
+        st.subheader("👨‍🔬 Dosen & Laboran")
+        for d in data["dosen"]:
+            with st.container(border=True):
+                st.write(f"**{d['nama']}**")
+                st.caption(f"📞 {d['telp']}")
+
+def tampilkan_gedung(nama_gedung):
+    st.header(f"🏢 {nama_gedung}")
+    lab_di_gedung = {k: v for k, v in DATABASE_LAB.items() if v["gedung"] == nama_gedung}
+    for nama_lab, info in lab_di_gedung.items():
+        if st.button(f"Pilih {nama_lab}", key=info["key"]):
+            st.session_state.lab_terpilih = nama_lab
+            st.rerun()
+
 def lihat_jadwal():
     st.header("📅 Jadwal Laboratorium")
-
-    lab = st.selectbox("Pilih Lab", list(jadwal.keys()))
-    hari = st.selectbox("Pilih Hari", ["senin", "selasa"])
-
-    data = jadwal[lab].get(hari)
-
-    if data:
-        for jam, kelas in data.items():
-            st.write(f"🕒 **{jam}** → Kelas **{kelas}**")
+    lab_nama = st.selectbox("Pilih Lab", list(DATABASE_LAB.keys()))
+    hari = st.selectbox("Pilih Hari", ["senin", "selasa", "rabu", "kamis", "jumat"])
+    jadwal_hari = DATABASE_LAB[lab_nama]["jadwal"].get(hari)
+    if jadwal_hari:
+        for jam, kls in jadwal_hari.items():
+            st.info(f"🕒 **{jam}** — Kelas **{kls}**")
     else:
-        st.info("Tidak ada jadwal")
+        st.warning("Tidak ada jadwal.")
 
 # ===============================
-# GEDUNG B
+# ROUTING
 # ===============================
-def ged_b():
-    st.header("Lab.Ged B")
-    st.write("Daftar Laboratorium Gedung B")
+with st.sidebar:
+    st.title("Menu Lab")
+    menu = st.radio("Pilih Menu", ["Jadwal Lab", "Gedung B", "Gedung E", "Gedung F", "Gedung G"], on_change=reset_lab)
 
-    if st.button("Lab Organik"):
-        st.session_state.lab = "organik"
-
-    if st.button("Lab Analisis"):
-        st.session_state.lab = "analisis"
-
-# ===============================
-# GEDUNG D
-# ===============================
-def ged_d():
-    st.header("Lab.Ged D")
-    st.write("Daftar Laboratorium Gedung D")
-
-    if st.button("Lab Lingkungan"):
-        st.session_state.lab = "lingkungan"
-
-# ===============================
-# GEDUNG E
-# ===============================
-def ged_e():
-    st.header("Lab.Ged E")
-    st.write("Daftar Laboratorium Gedung E")
-
-    if st.button("Lab Instrument"):
-        st.session_state.lab = "instrument"
-
-# ===============================
-# HALAMAN LAB (REGULASI BEDA)
-# ===============================
-def halaman_lab(lab):
-    if lab == "organik":
-        st.header("🔬 Lab Organik")
-        st.write("• OOOOOOO")
-        st.write("• OOOOOOO")
-        st.write("• OOOOOOO")
-
-    elif lab == "analisis":
-        st.header("⚗️ Lab Analisis")
-        st.write("• AAAAA")
-        st.write("• AAAAA")
-
-    elif lab == "instrument":
-        st.header("🧪 Lab Instrument")
-        st.write("• EEEEE")
-        st.write("• EEEEE")
-
-    elif lab == "lingkungan":
-        st.header("🌱 Lab Lingkungan")
-        st.write("• WWWWWW")
-        st.write("• WWWWWW")
-
-    st.subheader("👨‍🔬 Dosen / Laboran")
-    for d in laboran[lab]:
-        st.image(d["foto"], caption=d["nama"], width=150)
-        st.write("📞", d["telp"])
-
-    st.link_button("Formulir Peminjaman", "https://streamlit.io/gallery")
-
-    if st.button("⬅ Kembali"):
-        st.session_state.lab = None
-
-# ===============================
-# SIDEBAR MENU
-# ===============================
-menu = st.sidebar.radio(
-    "Menu",
-    [
-        "Jadwal Lab",
-        "Lab.Ged B",
-        "Lab.Ged D",
-        "Lab.Ged E",
-    ]
-)
-
-# ===============================
-# ROUTING UTAMA
-# ===============================
-if menu == "Jadwal Lab":
-    lihat_jadwal()
-
-elif st.session_state.lab is not None:
-    halaman_lab(st.session_state.lab)
-
-elif menu == "Lab.Ged B":
-    ged_b()
-
-elif menu == "Lab.Ged D":
-    ged_d()
-
-elif menu == "Lab.Ged E":
-    ged_e()
+if st.session_state.lab_terpilih:
+    halaman_detail_lab(st.session_state.lab_terpilih)
+else:
+    if menu == "Jadwal Lab": lihat_jadwal()
+    else: tampilkan_gedung(menu)
