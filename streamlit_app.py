@@ -120,7 +120,7 @@ DATABASE_LAB = {
             "5. mmmmmmmmmmmmm"
         ],
         "dosen": [
-            {"nama": "Pak Purbay", "telp": "Kode 8"},
+            {"nama": "Pak Purbay", "telp,o877": "Kode 8"},
             {"nama": "Bu Retno", "telp": "Kode 9"},
             {"nama": "Mas Jaka", "telp": "Kode 10"},
         ],
