@@ -24,9 +24,9 @@ DATABASE_LAB = {
             "5. wwww lapor jika ada kerusakan"
         ],
         "dosen": [
-            {"nama": "ayung, M.Si", "telp": "Kode 2"},
-            {"nama": "Siti Indomi, M.Si", "telp": "Kode 3"},
-            {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4"},
+            {"nama": "ayung, M.Si", "telp": "08wkwkwkwkwk"},
+            {"nama": "Siti Indomi, M.Si", "telp": "08wkwkwkwkwk"},
+            {"nama": "Ultra Mikk. Amd, Si", "telp": "08wkwkwkwkwk"},
         ],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     },
@@ -48,9 +48,9 @@ DATABASE_LAB = {
             "5. bbbbbbbbbbbbb"
         ],
         "dosen": [
-            {"nama": "Pak Joko", "telp": "Kode 5"},
-            {"nama": "Bu Puan", "telp": "Kode 6"},
-            {"nama": "Bu Sri", "telp": "Kode 7"},
+            {"nama": "Pak Joko", "telp": "08wkwkwkwkwk"},
+            {"nama": "Bu Puan", "telp": "08wkwkwkwkwk"},
+            {"nama": "Bu Sri", "telp": "08wkwkwkwkwk"},
         ],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     },
@@ -72,9 +72,9 @@ DATABASE_LAB = {
             "5. ppppppppppppp"
         ],
         "dosen": [
-            {"nama": "Pak Purbay", "telp": "Kode 8"},
-            {"nama": "Bu Retno", "telp": "Kode 9"},
-            {"nama": "Mas Jaka", "telp": "Kode 10"},
+            {"nama": "Pak Purbay", "telp": "08wkwkwkwkwk"},
+            {"nama": "Bu Retno", "telp": "08wkwkwkwkwk"},
+            {"nama": "Mas Jaka", "telp": "08wkwkwkwkwk"},
         ],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     },
@@ -96,9 +96,57 @@ DATABASE_LAB = {
             "5. 0000000000000"
         ],
         "dosen": [
-            {"nama": "Pak DD", "telp": "Kode 11"},
-            {"nama": "Bu CC", "telp": "Kode 12"},
-            {"nama": "Mas HH", "telp": "Kode 13"},
+            {"nama": "Pak DD", "telp": "08wkwkwkwkwk"},
+            {"nama": "Bu CC", "telp": "08wkwkwkwkwk"},
+            {"nama": "Mas HH", "telp": "08wkwkwkwkwk"},
+        ],
+        "link_form": "https://youtu.be/opl6dScRQzQ"
+    },
+    "Lab mikro": {
+        "gedung": "Gedung E",
+        "key": "instrumen",
+        "jadwal": {
+            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
+            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
+            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
+            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
+            "jumat": {"07.00": "1B", "10.00": "2D"}
+        },
+        "regulasi": [
+            "1. 0000000000",
+            "2. 00000000000",
+            "3. 000000000000",
+            "4. 00000000000",
+            "5. 0000000000000"
+        ],
+        "dosen": [
+            {"nama": "Pak DD", "telp": "08wkwkwkwkwk"},
+            {"nama": "Bu CC", "telp": "08wkwkwkwkwk"},
+            {"nama": "Mas HH", "telp": "08wkwkwkwkwk"},
+        ],
+        "link_form": "https://youtu.be/opl6dScRQzQ"
+    },
+    "Lab komputer": {
+        "gedung": "Gedung E",
+        "key": "instrumen",
+        "jadwal": {
+            "senin": {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
+            "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
+            "rabu": {"07.00": "2G", "10.00": "2E", "14.00": "1G"},
+            "kamis": {"07.00": "1D", "10.00": "1F", "14.00": "1A"},
+            "jumat": {"07.00": "1B", "10.00": "2D"}
+        },
+        "regulasi": [
+            "1. 0000000000",
+            "2. 00000000000",
+            "3. 000000000000",
+            "4. 00000000000",
+            "5. 0000000000000"
+        ],
+        "dosen": [
+            {"nama": "Pak DD", "telp": "08wkwkwkwkwk"},
+            {"nama": "Bu CC", "telp": "08wkwkwkwkwk"},
+            {"nama": "Mas HH", "telp": "08wkwkwkwkwk"},
         ],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     },
@@ -120,9 +168,9 @@ DATABASE_LAB = {
             "5. mmmmmmmmmmmmm"
         ],
         "dosen": [
-            {"nama": "Pak Purbay", "telp,o877": "Kode 8"},
-            {"nama": "Bu Retno", "telp": "Kode 9"},
-            {"nama": "Mas Jaka", "telp": "Kode 10"},
+            {"nama": "Pak Purbay", "telp": "08wkwkwkwkwk"},
+            {"nama": "Bu Retno", "telp": "08wkwkwkwkwk"},
+            {"nama": "Mas Jaka", "telp": "08wkwkwkwkwk"},
         ],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     },
@@ -144,9 +192,9 @@ DATABASE_LAB = {
             "5. msmsmsmsmsmsmsmsms"
         ],
         "dosen": [
-            {"nama": "agoy, M.Si", "telp": "Kode 2"},
-            {"nama": "Siti Indomi, M.Si", "telp": "Kode 3"},
-            {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4"},
+            {"nama": "agoy, M.Si", "telp": "08wkwkwkwkwk"},
+            {"nama": "Siti Indomi, M.Si", "telp": "08wkwkwkwkwk"},
+            {"nama": "Ultra Mikk. Amd, Si", "telp": "08wkwkwkwkwk"},
         ],
         "link_form": "https://youtu.be/opl6dScRQzQ"
     }
