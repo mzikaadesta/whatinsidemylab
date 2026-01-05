@@ -1,201 +1,192 @@
 import streamlit as st
 
-st.set_page_config(page_title="Sistem Laboratorium", layout="wide")
-
-# ===============================
-# DATABASE JADWAL LAB (SIMULASI)
-# ===============================
-jadwal = {
-    "Lab.organik": {
-        "senin":  {"07.00": "1A", "10.00": "1B", "14.00": "2A"},
-        "selasa": {"07.00": "2E", "10.00": "3A", "14.00": "1C"},
-    },
-    "Lab.analisis": {
-        "senin":  {"07.00": "2A", "10.00": "2B", "14.00": "2C"},
-        "selasa": {"07.00": "1A", "10.00": "2D"},
-    },
-    "Lab.instrument": {
-        "senin":  {"07.00": "2D", "10.00": "2E"},
-        "selasa": {"07.00": "2F", "10.00": "2G"},
-    },
-    "Lab.lingkungan": {
-        "senin":  {"07.00": "1A", "10.00": "2A"},
-        "selasa": {"07.00": "2C", "10.00": "2D"},
-    },
+# =====================================
+# DATA GEDUNG & LAB
+# =====================================
+gedung_lab = {
+    "Lab.Ged D": ["Lab Lingkungan", "Lab Organik", "Lab Analisis"],
+    "Lab.Ged E": ["Lab Instrument", "Lab Mikro", "Lab Bahasa", "Lab Komputer"],
+    "Lab.Ged G": ["Lab Nanomaterial dan Teknologi"],
+    "Lab.Ged F": ["Lab Fisika"]
 }
 
-# ===============================
-# DATA DOSEN / LABORAN PER LAB
-# ===============================
+# =====================================
+# DATA DOSEN / LABORAN
+# =====================================
 laboran = {
-    "organik": [
-        {"nama": "Dosen Organik 1", "telp": "08vvvvvvvvvvvvv"},
-        {"nama": "Dosen Organik 2", "telp": "08vvvvvvvvvvvvv"},
-        {"nama": "Dosen Organik 3", "telp": "08vvvvvvvvvvvvv"},
+    "Lab Organik": [
+        {"nama": "Pak Wowo", "telp": "08vvvv", "foto": "https://via.placeholder.com/200"},
+        {"nama": "Bu Mega", "telp": "08vvvv", "foto": "https://via.placeholder.com/200"},
     ],
-    "analisis": [
-        {"nama": "Dosen Analisis 1", "telp": "08vvvvvvvvvvvvv"},
-        {"nama": "Dosen Analisis 2", "telp": "08vvvvvvvvvvvvv"},
-        {"nama": "Dosen Analisis 3", "telp": "08vvvvvvvvvvvvv"},
+    "Lab Lingkungan": [
+        {"nama": "Bu Sri", "telp": "08vvvv", "foto": "https://via.placeholder.com/200"},
     ],
-    "instrument": [
-        {"nama": "Dosen Instrumen 1", "telp": "08vvvvvvvvvvvvv"},
-        {"nama": "Dosen Instrumen 2", "telp": "08vvvvvvvvvvvvv"},
-        {"nama": "Dosen Instrumen 3", "telp": "08vvvvvvvvvvvvv"},
+    "Lab Analisis": [
+        {"nama": "Pak Joko", "telp": "08vvvv", "foto": "https://via.placeholder.com/200"},
     ],
-    "lingkungan": [
-        {"nama": "Dosen Lingkungan 1", "telp": "08vvvvvvvvvvvvv"},
-        {"nama": "Dosen Lingkungan 2", "telp": "08vvvvvvvvvvvvv"},
-        {"nama": "Dosen Lingkungan 3", "telp": "08vvvvvvvvvvvvv"},
+    "Lab Instrument": [
+        {"nama": "Mas Jaka", "telp": "08vvvv", "foto": "https://via.placeholder.com/200"},
     ],
 }
 
-# ===============================
+# =====================================
 # SESSION STATE
-# ===============================
-if "lab_aktif" not in st.session_state:
-    st.session_state.lab_aktif = None
+# =====================================
+if "page" not in st.session_state:
+    st.session_state.page = "gedung"
+if "gedung" not in st.session_state:
+    st.session_state.gedung = None
+if "lab" not in st.session_state:
+    st.session_state.lab = None
 
-# ===============================
-# HALAMAN JADWAL
-# ===============================
-def lihat_jadwal():
-    st.header("📅 Jadwal Penggunaan Laboratorium")
+# =====================================
+# HALAMAN GEDUNG
+# =====================================
+def halaman_gedung():
+    st.header("🏢 Gedung Laboratorium")
+    for g in gedung_lab:
+        if st.button(g):
+            st.session_state.gedung = g
+            st.session_state.page = "lab"
 
-    lab = st.selectbox("Pilih Laboratorium", list(jadwal.keys()))
-    hari = st.selectbox("Pilih Hari", ["senin", "selasa"])
+# =====================================
+# HALAMAN LAB
+# =====================================
+def halaman_lab():
+    st.header(st.session_state.gedung)
+    for lab in gedung_lab[st.session_state.gedung]:
+        if st.button(lab):
+            st.session_state.lab = lab
+            st.session_state.page = lab
 
-    data = jadwal[lab].get(hari)
+    if st.button("⬅ Kembali"):
+        st.session_state.page = "gedung"
 
-    if data:
-        st.subheader(f"{lab} — {hari.capitalize()}")
-        for jam, kelas in data.items():
-            st.write(f"🕒 **{jam}** → Kelas **{kelas}**")
-    else:
-        st.info("Tidak ada jadwal")
-
-# ===============================
-# MENU LAB
-# ===============================
-def menu_lab():
-    st.header("🏫 Informasi Laboratorium")
-    st.write("Pilih laboratorium untuk melihat regulasi, alur, dan dosen laboran")
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        if st.button("Lab Organik"):
-            st.session_state.lab_aktif = "organik"
-        if st.button("Lab Analisis"):
-            st.session_state.lab_aktif = "analisis"
-
-    with col2:
-        if st.button("Lab Instrument"):
-            st.session_state.lab_aktif = "instrument"
-        if st.button("Lab Lingkungan"):
-            st.session_state.lab_aktif = "lingkungan"
-
-# ===============================
+# =====================================
 # HALAMAN LAB ORGANIK
-# ===============================
+# =====================================
 def lab_organik():
     st.header("🔬 Lab Organik")
 
-    st.subheader("📋 Regulasi & Alur")
-    st.write("• OOOOOOO")
-    st.write("• OOOOOOO")
-    st.write("• OOOOOOO")
+    st.subheader("📜 Regulasi")
+    st.write("""
+    • OOOOOOO  
+    • OOOOOOO  
+    • OOOOOOO  
+    """)
 
-    st.subheader("👨‍🔬 Dosen / Laboran")
-    for d in laboran["organik"]:
-        st.write(f"- **{d['nama']}** | 📞 {d['telp']}")
+    st.subheader("📄 Alur Peminjaman")
+    st.write("""
+    1. OOOOOOO  
+    2. OOOOOOO  
+    3. OOOOOOO  
+    """)
 
     st.link_button("Formulir Peminjaman", "https://streamlit.io/gallery")
 
-    if st.button("⬅ Kembali"):
-        st.session_state.lab_aktif = None
+    tampilkan_laboran("Lab Organik")
 
-# ===============================
+    tombol_kembali()
+
+# =====================================
 # HALAMAN LAB LINGKUNGAN
-# ===============================
+# =====================================
 def lab_lingkungan():
     st.header("🌱 Lab Lingkungan")
 
-    st.subheader("📋 Regulasi & Alur")
-    st.write("• WWWWWW")
-    st.write("• WWWWWWW")
-    st.write("• WWWWWW")
+    st.subheader("📜 Regulasi")
+    st.write("""
+    • WWWWWW  
+    • WWWWWW  
+    • WWWWWW  
+    """)
 
-    st.subheader("👨‍🔬 Dosen / Laboran")
-    for d in laboran["lingkungan"]:
-        st.write(f"- **{d['nama']}** | 📞 {d['telp']}")
+    st.subheader("📄 Alur Peminjaman")
+    st.write("""
+    1. WWWWWW  
+    2. WWWWWW  
+    """)
 
     st.link_button("Formulir Peminjaman", "https://streamlit.io/gallery")
 
-    if st.button("⬅ Kembali"):
-        st.session_state.lab_aktif = None
+    tampilkan_laboran("Lab Lingkungan")
 
-# ===============================
+    tombol_kembali()
+
+# =====================================
 # HALAMAN LAB ANALISIS
-# ===============================
+# =====================================
 def lab_analisis():
-    st.header("⚗️ Lab Analisis")
+    st.header("🧪 Lab Analisis")
 
-    st.subheader("📋 Regulasi & Alur")
-    st.write("• AAAAA")
-    st.write("• AAAAA")
-    st.write("• AAAAA")
+    st.subheader("📜 Regulasi")
+    st.write("""
+    • AAAAA  
+    • AAAAA  
+    """)
 
-    st.subheader("👨‍🔬 Dosen / Laboran")
-    for d in laboran["analisis"]:
-        st.write(f"- **{d['nama']}** | 📞 {d['telp']}")
+    st.subheader("📄 Alur Peminjaman")
+    st.write("""
+    1. AAAAA  
+    2. AAAAA  
+    """)
 
     st.link_button("Formulir Peminjaman", "https://streamlit.io/gallery")
 
-    if st.button("⬅ Kembali"):
-        st.session_state.lab_aktif = None
+    tampilkan_laboran("Lab Analisis")
 
-# ===============================
+    tombol_kembali()
+
+# =====================================
 # HALAMAN LAB INSTRUMENT
-# ===============================
+# =====================================
 def lab_instrument():
-    st.header("🧪 Lab Instrument")
+    st.header("📡 Lab Instrument")
 
-    st.subheader("📋 Regulasi & Alur")
-    st.write("• EEEEE")
-    st.write("• EEEEE")
-    st.write("• EEEEE")
+    st.subheader("📜 Regulasi")
+    st.write("""
+    • EEEEE  
+    • EEEEE  
+    """)
 
-    st.subheader("👨‍🔬 Dosen / Laboran")
-    for d in laboran["instrument"]:
-        st.write(f"- **{d['nama']}** | 📞 {d['telp']}")
+    st.subheader("📄 Alur Peminjaman")
+    st.write("""
+    1. EEEEE  
+    2. EEEEE  
+    """)
 
     st.link_button("Formulir Peminjaman", "https://streamlit.io/gallery")
 
-    if st.button("⬅ Kembali"):
-        st.session_state.lab_aktif = None
+    tampilkan_laboran("Lab Instrument")
 
-# ===============================
-# SIDEBAR
-# ===============================
-menu = st.sidebar.radio(
-    "Menu",
-    ["Lihat Jadwal Lab", "Informasi Lab"]
-)
+    tombol_kembali()
 
-# ===============================
-# ROUTING
-# ===============================
-if menu == "Lihat Jadwal Lab":
-    lihat_jadwal()
-else:
-    if st.session_state.lab_aktif is None:
-        menu_lab()
-    elif st.session_state.lab_aktif == "organik":
-        lab_organik()
-    elif st.session_state.lab_aktif == "lingkungan":
-        lab_lingkungan()
-    elif st.session_state.lab_aktif == "analisis":
-        lab_analisis()
-    elif st.session_state.lab_aktif == "instrument":
-        lab_instrument()
+# =====================================
+# KOMPONEN BERSAMA
+# =====================================
+def tampilkan_laboran(lab):
+    st.subheader("👨‍🏫 Dosen / Laboran")
+    for d in laboran.get(lab, []):
+        st.image(d["foto"], caption=d["nama"])
+        st.write("📞", d["telp"])
+        st.divider()
+
+def tombol_kembali():
+    if st.button("⬅ Kembali ke Daftar Lab"):
+        st.session_state.page = "lab"
+
+# =====================================
+# ROUTING UTAMA
+# =====================================
+if st.session_state.page == "gedung":
+    halaman_gedung()
+elif st.session_state.page == "lab":
+    halaman_lab()
+elif st.session_state.page == "Lab Organik":
+    lab_organik()
+elif st.session_state.page == "Lab Lingkungan":
+    lab_lingkungan()
+elif st.session_state.page == "Lab Analisis":
+    lab_analisis()
+elif st.session_state.page == "Lab Instrument":
+    lab_instrument()
