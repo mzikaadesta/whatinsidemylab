@@ -24,7 +24,7 @@ DATABASE_LAB = {
             "5. wwww lapor jika ada kerusakan"
         ],
         "dosen": [
-            {"nama": "Golda, M.Si", "telp": "Kode 2"},
+            {"nama": "ayung, M.Si", "telp": "Kode 2"},
             {"nama": "Siti Indomi, M.Si", "telp": "Kode 3"},
             {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4"},
         ],
@@ -144,7 +144,7 @@ DATABASE_LAB = {
             "5. msmsmsmsmsmsmsmsms"
         ],
         "dosen": [
-            {"nama": "Golda, M.Si", "telp": "Kode 2"},
+            {"nama": "agoy, M.Si", "telp": "Kode 2"},
             {"nama": "Siti Indomi, M.Si", "telp": "Kode 3"},
             {"nama": "Ultra Mikk. Amd, Si", "telp": "Kode 4"},
         ],
