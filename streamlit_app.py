@@ -186,7 +186,7 @@ def tampilkan_gedung(nama_gedung):
     st.header(f"🏢 {nama_gedung}")
     lab_di_gedung = {k: v for k, v in DATABASE_LAB.items() if v["gedung"] == nama_gedung}
     for nama_lab, info in lab_di_gedung.items():
-        if st.button(f"Pilih {nama_lab}", key=info["key"]):
+        if st.button(f"informasi {nama_lab}", key=info["key"]):
             st.session_state.lab_terpilih = nama_lab
             st.rerun()
 
