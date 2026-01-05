@@ -106,12 +106,24 @@ def halaman_detail_lab(nama_lab):
     # Di sini bisa kamu tambahkan list regulasi dan dosen seperti kode sebelumnya
 
 # ===============================
-# SIDEBAR & ROUTING
+# SIDEBAR & ROUTING (Update dengan Foto)
 # ===============================
 with st.sidebar:
+    # 1. Menambahkan foto kecil di atas judul (Ganti URL dengan file lokal jika ada)
+    # Contoh: st.image("logo_kampus.png", width=100)
+    st.image("https://cdn-icons-png.flaticon.com/512/4320/4320337.png", width=80)
+    
     st.title("🔬 Lab-Info System")
-    menu = st.radio("Navigasi Utama", ["Beranda", "Gedung D", "Gedung E", "Gedung F", "Gedung G", "Form Pinjam Lab"])
+    st.write("---") # Garis pembatas tipis
 
+    # Navigasi Menu
+    menu = st.radio(
+        "Navigasi Utama", 
+        ["Beranda", "Gedung B", "Gedung E", "Gedung F", "Gedung G", "Form Pinjam Lab"],
+        on_change=reset_lab # Memastikan state reset saat pindah menu
+    )
+
+# LOGIKA ROUTING (Tetap sama agar tidak error)
 if st.session_state.lab_terpilih:
     halaman_detail_lab(st.session_state.lab_terpilih)
 else:
@@ -121,4 +133,5 @@ else:
     elif menu == "Form Pinjam Lab":
         halaman_pinjam_lab()
     else:
+        # Menampilkan gedung (B, E, F, atau G)
         tampilkan_gedung(menu)
