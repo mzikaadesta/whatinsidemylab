@@ -165,6 +165,7 @@ else:
     if menu == "Beranda":
         st.title("Selamat Datang di Sistem Lab")
         st.write("Gunakan menu di samping untuk melihat info gedung atau melakukan peminjaman.")
+    
     elif menu == "Form Pinjam Lab":
         halaman_pinjam_lab()
     else:
