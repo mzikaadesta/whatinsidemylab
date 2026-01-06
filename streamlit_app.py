@@ -176,8 +176,8 @@ if st.session_state.lab_terpilih:
     halaman_detail_lab(st.session_state.lab_terpilih)
 else:
     if menu == "Beranda":
-        st.title("Project Logika Dan Pemrograman Komputer")
-        st.write("Kelompok 4.")
+        st.title("Welcome To, AKA-LABBROWS")
+        st.write("tempat khusus unutk kamu yang ingin meminjam lab di Politeknik AKA Bogor")
         st.write("Selamat datang! Silakan pilih gedung untuk melihat informasi laboratorium atau gunakan menu peminjaman untuk mengajukan izin.")
         st.image("https://qubisastorage.blob.core.windows.net/files/microlearnings/2554/images/img480/2554-20210702124412375.jpg", use_container_width=True)
     elif menu == "Jadwal Lab":
