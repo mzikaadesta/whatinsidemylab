@@ -147,7 +147,7 @@ with st.sidebar:
     st.write("---")
     menu = st.radio(
         "Navigasi Utama", 
-        ["Beranda", "Jadwal Lab", "Gedung D", "Gedung E", "Gedung F", "Gedung G", ""], 
+        ["Beranda", "Jadwal Lab", "Gedung D", "Gedung E", "Gedung F", "Gedung G"], 
         on_change=reset_lab
     )
 
