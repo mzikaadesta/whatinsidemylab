@@ -154,7 +154,10 @@ else:
         st.title("Welcome To, AKA-LABBROWS")
         st.write("tempat khusus unutk kamu yang ingin meminjam lab di Politeknik AKA Bogor")
         st.write("Selamat datang! Silakan pilih gedung untuk melihat informasi laboratorium atau gunakan menu peminjaman untuk mengajukan izin.")
-        st.image("https://qubisastorage.blob.core.windows.net/files/microlearnings/2554/images/img480/2554-20210702124412375.jpg", use_container_width=True)
+        # PERBAIKAN DI SINI:
+        # Langsung masukkan link YouTube ke st.video()
+        url_video = "https://youtu.be/F-j-BGyRNKo"
+        st.video(url_video)
     elif menu == "Jadwal Lab":
         lihat_jadwal()
     elif menu == "Form Pinjam Lab":
