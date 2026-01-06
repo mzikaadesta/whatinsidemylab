@@ -217,11 +217,7 @@ if st.session_state.lab_terpilih:
     halaman_detail_lab(st.session_state.lab_terpilih)
 else:
     if menu == "Beranda":
-        if 'intro_done' not in st.session_state:
-        typewriter("Welcome To, AKA-LABBROWS")
-        st.session_state.intro_done = True
-    else:
-        st.markdown("<h1 style='text-align: center; color: white;'>Welcome To, AKA-LABBROWS</h1>", unsafe_allow_html=True)
+        st.title("welcome To AKA-LABBROWS")
         st.write("**Projek Logika Dan Pemrograman Komputer - Kelompok 4**")
         st.write("Tempat khusus untuk kamu yang ingin meminjam lab di Politeknik AKA Bogor.")
         st.video("https://youtu.be/F-j-BGyRNKo")
