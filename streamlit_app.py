@@ -124,33 +124,8 @@ def tampilkan_gedung(nama_gedung):
                 if st.button(f"Informasi {nama_lab}", key=info["key"]):
                     st.session_state.lab_terpilih = nama_lab
                     st.rerun()
-'''
-def halaman_pinjam_lab():
-    st.header("📝 Form Pengajuan Peminjaman Lab")
-    with st.form("form_peminjaman"):
-        col1, col2 = st.columns(2)
-        with col1:
-            nama = st.text_input("Nama Lengkap")
-            nim = st.text_input("NIM")
-            lab_pilihan = st.selectbox("Pilih Lab", list(DATABASE_LAB.keys()))
-        
-        with col2:
-            # --- PEMISAHAN TANGGAL DAN JAM ---
-            tgl_pinjam = st.date_input("Pilih Tanggal Peminjaman", datetime.date.today())
-            jam_pinjam = st.time_input("Pilih Jam Peminjaman", datetime.time(8, 0)) # Default jam 08:00
-            berkas = st.file_uploader("Upload Berkas (KTM/Surat)", type=['pdf', 'jpg', 'png'])
-        
-        keperluan = st.text_area("Keperluan Peminjaman")
-        submit = st.form_submit_button("Kirim Pengajuan")
-        
-        if submit:
-            if nama and nim and keperluan:
-                st.success(f"✅ Pengajuan berhasil dibuat!")
-                st.write(f"**Detail:** {nama} meminjam {lab_pilihan} pada tanggal {tgl_pinjam} jam {jam_pinjam}")
-                st.balloons()
-            else:
-                st.error("Mohon isi semua data wajib!")
-'''
+
+
 def lihat_jadwal():
     st.header("📅 Jadwal Laboratorium")
     lab_nama = st.selectbox("Pilih Lab", list(DATABASE_LAB.keys()))
