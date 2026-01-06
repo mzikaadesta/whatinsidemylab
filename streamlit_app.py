@@ -217,10 +217,11 @@ if st.session_state.lab_terpilih:
     halaman_detail_lab(st.session_state.lab_terpilih)
 else:
     if menu == "Beranda":
-        st.title("Welcome To, AKA-LABBROWS")
+        st.title("Welcome To AKA-LABBROWS")
         st.write("**Projek Logika Dan Pemrograman Komputer - Kelompok 4**")
         st.write("Tempat khusus untuk kamu yang ingin meminjam lab di Politeknik AKA Bogor.")
         st.video("https://youtu.be/F-j-BGyRNKo")
+        st.write("Politeknik AKA Bogor didirikan pada tahun 1959 dan merupakan perguruan tinggi di lingkungan Kementerian Perindustrian. Terdapat beberapa laboratorium yang terdapat di Politeknik AKA Bogor, antara lain, Gedung D (Lab Organik, Lab Analisis, Lab Lingkungan), Gedung E (Lab Instrumen, Lab Mikro), Gedung F (Lab Fisika), Gedung G (Lab Teknologi).")
         st.balloons()
     elif menu == "Jadwal Lab":
         lihat_jadwal()
