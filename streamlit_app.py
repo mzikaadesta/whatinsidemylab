@@ -22,7 +22,7 @@ def reset_lab():
 # 2. DATABASE & DATA AKSES
 # ===============================
 AKSES_DOSEN = {
-    "Dr. Andi Saputra": "1987654321",
+    "Andi": "12345678",
     "Dr. Budi Santoso": "1976543210",
     "Dr. Siti Aminah": "1965432109"
 }
