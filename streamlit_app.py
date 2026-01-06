@@ -21,11 +21,7 @@ def reset_lab():
 # ===============================
 # 2. DATABASE & DATA AKSES
 # ===============================
-AKSES_DOSEN = {
-    "Andi": "12345678",
-    "Dr. Budi Santoso": "1976543210",
-    "Dr. Siti Aminah": "1965432109"
-}
+
 
 DATABASE_LAB = {
     "Lab Organik": {
@@ -140,43 +136,7 @@ def lihat_jadwal():
     else:
         st.warning("Tidak ada jadwal untuk hari ini.")
 
-def halaman_penambahan_jadwal_lab():
-    st.title("🔐 Penambahan Jadwal Laboratorium")
-    
-    if not st.session_state.login:
-        st.subheader("Akses Dosen")
-        nama_dosen = st.text_input("Nama Dosen")
-        nip_dosen = st.text_input("NIP Dosen", type="password")
-        if st.button("Masuk"):
-            if nama_dosen in AKSES_DOSEN and nip_dosen == AKSES_DOSEN[nama_dosen]:
-                st.session_state.login = True
-                st.session_state.nama = nama_dosen
-                st.success("Login berhasil ✅")
-                st.rerun()
-            else:
-                st.error("❌ Nama Dosen atau NIP salah")
-    else:
-        st.success(f"Selamat datang, {st.session_state.nama} 👋")
-        st.subheader("📤 Upload File Jadwal Laboratorium")
-        
-        UPLOAD_FOLDER = "upload_jadwal"
-        os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-        uploaded_file = st.file_uploader(
-            "Upload file jadwal (PDF / Excel / Word)",
-            type=["pdf", "xlsx", "xls", "docx"]
-        )
-
-        if uploaded_file is not None:
-            file_path = os.path.join(UPLOAD_FOLDER, uploaded_file.name)
-            with open(file_path, "wb") as f:
-                f.write(uploaded_file.getbuffer())
-            st.success(f"✅ File '{uploaded_file.name}' berhasil di-upload")
-
-        if st.button("Logout"):
-            st.session_state.login = False
-            st.session_state.nama = ""
-            st.rerun()
 
 # ===============================
 # 4. SIDEBAR & ROUTING
@@ -187,7 +147,7 @@ with st.sidebar:
     st.write("---")
     menu = st.radio(
         "Navigasi Utama", 
-        ["Beranda", "Jadwal Lab", "Gedung D", "Gedung E", "Gedung F", "Gedung G", "Penambahan Jadwal Laboratorium"], 
+        ["Beranda", "Jadwal Lab", "Gedung D", "Gedung E", "Gedung F", "Gedung G", ""], 
         on_change=reset_lab
     )
 
