@@ -158,6 +158,7 @@ else:
         # Langsung masukkan link YouTube ke st.video()
         url_video = "https://youtu.be/F-j-BGyRNKo"
         st.video(url_video)
+        st.balloons()
     elif menu == "Jadwal Lab":
         lihat_jadwal()
     elif menu == "Form Pinjam Lab":
