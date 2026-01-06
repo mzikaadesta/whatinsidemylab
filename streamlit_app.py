@@ -91,7 +91,7 @@ DATABASE_LAB = {
         "jadwal": {"senin": {"07.00": "1A", "10.00": "1B"}},
         "regulasi": ["1. Dresscode lab lengkap", "2. Dilarang makan/minum"],
         "dosen": [{"nama": "ayung, M.Si", "telp": "08xxx"}],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
+        "link_form": "https://www.youtube.com/watch?v=muHqHqTobEQ"
     },
     "Lab Analisis": {
         "gedung": "Gedung D",
@@ -99,7 +99,7 @@ DATABASE_LAB = {
         "jadwal": {"selasa": {"07.00": "2E"}},
         "regulasi": ["1. Prosedur analisis ketat", "2. Cek alat sebelum pakai"],
         "dosen": [{"nama": "Pak Joko", "telp": "08xxx"}],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
+        "link_form": "https://www.youtube.com/watch?v=muHqHqTobEQ"
     },
     "Lab Lingkungan": {
         "gedung": "Gedung D",
@@ -107,7 +107,7 @@ DATABASE_LAB = {
         "jadwal": {"rabu": {"10.00": "2E"}},
         "regulasi": ["1. Pakai masker", "2. Buang limbah sesuai aturan"],
         "dosen": [{"nama": "Pak Purbay", "telp": "08xxx"}],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
+        "link_form": "https://www.youtube.com/watch?v=muHqHqTobEQ"
     },
     "Lab Instrumen": {
         "gedung": "Gedung E",
@@ -115,7 +115,7 @@ DATABASE_LAB = {
         "jadwal": {"kamis": {"07.00": "1D"}},
         "regulasi": ["1. Izin laboran khusus", "2. Kalibrasi mandiri"],
         "dosen": [{"nama": "Pak DD", "telp": "08xxx"}],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
+        "link_form": "https://www.youtube.com/watch?v=muHqHqTobEQ"
     },
     "Lab mikro": {
         "gedung": "Gedung E",
@@ -123,7 +123,7 @@ DATABASE_LAB = {
         "jadwal": {"jumat": {"07.00": "1B"}},
         "regulasi": ["1. Sterilisasi alat", "2. Jas lab bersih"],
         "dosen": [{"nama": "Bu CC", "telp": "08xxx"}],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
+        "link_form": "https://www.youtube.com/watch?v=muHqHqTobEQ"
     },
     "Lab Fisika": {
         "gedung": "Gedung F",
@@ -131,7 +131,7 @@ DATABASE_LAB = {
         "jadwal": {"senin": {"14.00": "2A"}},
         "regulasi": ["1. Hati-hati arus listrik", "2. Rapikan kabel setelah pakai"],
         "dosen": [{"nama": "Mas Jaka", "telp": "08xxx"}],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
+        "link_form": "https://www.youtube.com/watch?v=muHqHqTobEQ"
     },
     "Lab Teknologi": {
         "gedung": "Gedung G",
@@ -139,7 +139,7 @@ DATABASE_LAB = {
         "jadwal": {"selasa": {"14.00": "1C"}},
         "regulasi": ["1. Safety first", "2. Sepatu tertutup"],
         "dosen": [{"nama": "agoy, M.Si", "telp": "08xxx"}],
-        "link_form": "https://youtu.be/opl6dScRQzQ"
+        "link_form": "https://www.youtube.com/watch?v=muHqHqTobEQ"
     }
 }
 
